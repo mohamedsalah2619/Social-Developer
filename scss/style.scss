@@ -1,0 +1,252 @@
+@import 'config';
+@import 'classes';
+@import 'form';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'raleway', sans-serif;
+}
+body {
+    color: rgb(26, 25, 25);
+}
+
+a {
+    text-decoration: none;
+    color: $light-color;
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(186, 189, 189);
+    }
+}
+
+ul {
+    list-style: none;
+}
+h3 {
+    font-weight: 600 !important;
+    margin: 0;
+}
+
+// Navbar
+nav {
+    border-bottom: 2px solid $primary-color;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    background: $dark-color;
+
+    .nav-links li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+
+    @include mediaSm {
+        display: block;
+        text-align: center;
+
+        .nav-links {
+            margin-top: 1rem;
+        }
+
+    }
+}
+
+// Landing
+
+.landing {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+    z-index: 1;
+    padding: 0 50px;
+    background-image: url(../images/showcase.jpg);
+    background-size: cover;
+    position: relative;
+
+    .land-cont {
+        h1 {
+            margin-bottom: 1.2rem;
+        }
+        p {
+            color: darken(#fff, 20);
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+// Sign Up
+.container {
+    padding-top: 20px;
+    h3 {
+        margin: 20px 0;
+        font-size: 1.5rem;
+        font-weight: 200;
+    }
+}
+
+// Developers
+.developer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 2rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+    margin: 1.2rem 0;
+    font-size: 1.2rem;
+
+    img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .info {
+        h3 {
+            font-weight: 600;
+            margin: 0;
+        }
+        a {
+            margin-top: .7rem;
+        }
+    }
+    .skills {
+        h4 {
+            margin-bottom: .5rem;
+        }
+    }
+
+    @include mediaSm {
+        display: block;
+        text-align: center;
+
+        .skills {
+            display: none;
+        }
+    }
+}
+
+// Profile
+
+.profile {
+
+    display: grid;
+    grid-template-areas: 'top top' 'bio bio' 'exp edu' 'github github';
+    grid-gap: 1rem;
+    // TOP
+    .profile-top {
+        text-align: center;
+        padding: 2rem;
+        margin: 1rem 0;
+        grid-area: top;
+
+        img {
+            width: 250px;
+            height: 250px;
+            margin-bottom: .5rem;
+        }
+        .info {
+            font-size: 1.4rem;
+        }
+
+        .icons i {
+            padding: .2rem;
+            @include trans;
+            &:hover{
+                color: $dark-color;
+                cursor: pointer;
+            }
+        }
+    }
+
+    // BIO
+    .bio {
+        padding: 1rem;
+        padding-bottom: 2rem;
+        text-align: center;
+        grid-area: bio;
+        .bio-cont {
+            margin-bottom: 1rem;
+        }
+        .skills h4{
+            display: inline-block;
+            margin-right: .5rem;
+        }
+    }
+    hr{ 
+        height: 1px;
+        width: 100%;
+        opacity: .3;
+    }
+
+    // EXP & EDU
+    .exp,
+    .edu {
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.2rem;
+
+        & > div {
+            margin-bottom: 2rem;
+            h4 { margin: 1rem 0; font-size: 1.2rem;}
+            p { margin: 1rem 0;}
+        }
+    }
+    .exp {
+        grid-area: exp;
+    }
+    .edu {
+        grid-area: edu;
+    }
+    @include mediaSm {
+        display: block;
+    }
+}
+
+// Github
+.github {
+    grid-area: github;
+    .repo {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        p {margin: .2rem 0;}
+        .badges {
+            text-align: center;
+            p {
+                padding: .2rem;
+                font-size: .8rem;
+            }
+        }
+    }
+}
+
+.table {
+    th,
+    td {
+        padding: 1rem;
+        text-align: left;
+    }
+    th {
+        background: $light-color;
+    }
+}
+
+.dash-buttons {
+    a {
+        margin-bottom: 1rem;
+    }
+}
